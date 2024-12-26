@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A digital adaptation of the book 'Easy-To-Make Furniture' by Sunset Books Publications.">
+    <meta name="keywords" content="furniture, DIY, Sunset Books, easy furniture, book digitization, woodworking, crafts">
+    <meta name="author" content="AaronHG">
+    <meta name="copyright" content="Content © Sunset Books Publications. All rights reserved.">
+    <title>Easy-To-Make Furniture - A Sunset Book</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css"> <!-- Regular styles for desktop -->
+    <link rel="stylesheet" href="mobile.css" media="screen and (max-width: 768px)"> <!-- Mobile styles -->
+</head>
+
+<body>
+    <!-- Main container -->
+    <div id="main-container">
+       
+        <div id="nav-menu">
+            <button id="left-arrow" class="nav-btn">&#8592;</button>
+            <select id="page-select" class="nav-dropdown">
+                <!-- Pages will be populated dynamically -->
+            </select>
+            <button id="right-arrow" class="nav-btn">&#8594;</button>
+        </div>
+
+       
+        <!-- Loading Container -->
+        <div id="loading-bar-container">
+            <div id="post-it-note">
+                <div id="loading-dots">
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+                <span id="loading-text">Loading...</span>
+            </div>
+        </div>
+
+        <!-- PDF Canvas (Initially hidden) -->
+        <canvas id="pdf-render" style="display:none;"></canvas>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.7.107/pdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.7.107/pdf.worker.min.js"></script>
+    <!-- Main Script -->
+    <script type="module" src="script.js"></script>
+
+    <!-- Page Turn Effect Script -->
+    <script type="module" src="pageTurn.js"></script>
+    
+</body>
+</html>

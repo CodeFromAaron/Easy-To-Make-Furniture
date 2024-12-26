@@ -1,0 +1,185 @@
+/* General body and html styling */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: Arial, sans-serif;
+}
+
+/* Body specific styling */
+body {
+    background-color: #f9f9f9; /* Fallback color in case image doesn't load */
+    background-image: url('corkboard-texture.jpg'); /* Replace with your image path */
+    background-size: cover; /* Ensure the background covers the entire page */
+    background-position: center; /* Center the background image */
+    background-attachment: fixed; /* Keep the background fixed when scrolling */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    color: #333; /* Text color for good contrast */
+}
+
+/* Main container styling */
+#main-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh; /* Full height of the viewport */
+    padding: 20px; /* Add padding for spacing */
+    box-sizing: border-box; /* Include padding in the width/height calculations */
+    overflow: hidden; /* Prevent any overflow */
+    padding-top: 60px; /* Adjust for the fixed nav bar */
+}
+
+/* PDF Canvas Styling */
+#pdf-render {
+    display: block; /* Show PDF when loaded */
+    width: 100%; /* Adjust to full width */
+    height: auto; /* Maintain aspect ratio */
+    max-height: 80vh; /* Limit height to avoid covering the page */
+    object-fit: contain;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Subtle drop shadow */
+}
+
+/* Navigation Menu - Updated */
+#nav-menu {
+    background-color: #ffeb3b; /* Yellow color */
+    padding: 10px 20px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2); /* Shadow for the sticky effect */
+    position: fixed; /* Fix position to the top of the screen */
+    top: 20px; /* Move the nav bar down from the top */
+    left: 50%;
+    transform: translateX(-50%); /* Center horizontally */
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 300px;
+    margin: 0; /* Remove margin */
+}
+
+/* Left and Right Arrows */
+.nav-arrow {
+    font-size: 20px;
+    cursor: pointer;
+    padding: 5px;
+    background-color: #fff;
+    border-radius: 50%;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+.nav-arrow:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+/* Dropdown for Page Numbers */
+#page-dropdown {
+    font-size: 16px;
+    padding: 5px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#page-dropdown:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+/* Page numbers in dropdown */
+#page-dropdown option {
+    font-family: "Courier New", Courier, monospace;
+    padding: 5px;
+}
+
+/* Sticky Note Style */
+#post-it-note {
+    background-color: #ffeb3b; /* Yellow post-it note color */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2); /* Shadow for the sticky effect */
+    width: 200px;
+    text-align: center;
+    font-family: "Courier New", Courier, monospace;
+    position: relative;
+}
+
+/* Sticky Note Edge (Optional - to make it look more like it's stuck) */
+#post-it-note:before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 20px;
+    background-color: #ffeb3b;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+}
+
+/* Loading Dots */
+#loading-bar-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;  /* Position absolutely to ensure it is centered */
+    top: 50%;  /* Vertically center */
+    left: 50%;  /* Horizontally center */
+    transform: translate(-50%, -50%);  /* Fine-tune centering */
+    flex-direction: column;  /* Align items vertically */
+    z-index: 1000;  /* Ensure it's above other content */
+}
+
+#loading-dots {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin-bottom: 10px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    background-color: #333;
+    border-radius: 50%;
+    animation: dot-blink 1.5s infinite ease-in-out;
+}
+
+.dot:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.dot:nth-child(2) {
+    animation-delay: 0.3s;
+}
+
+.dot:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+/* Blinking Animation for Dots */
+@keyframes dot-blink {
+    0%, 100% {
+        opacity: 0.3;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+/* Example animation for page turning effect */
+@keyframes pageTurnAnimation {
+    0% { opacity: 0; transform: rotateY(90deg); }
+    100% { opacity: 1; transform: rotateY(0deg); }
+}
+
+#pdf-render {
+    animation: pageTurnAnimation 1s ease-in-out;
+}

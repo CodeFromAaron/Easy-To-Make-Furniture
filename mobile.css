@@ -1,0 +1,87 @@
+/* Ensure the PDF canvas takes up the full width of the screen */
+#pdf-render {
+    width: 100% !important; /* Take full width of the screen */
+    height: auto !important; /* Automatically adjust height to maintain aspect ratio */
+    max-height: 90vh; /* Limit the height to 90% of the viewport height */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add subtle shadow for aesthetics */
+    margin-top: 10px; /* Space above the PDF to ensure it isn't hidden behind the menu */
+}
+
+/* Adjustments for the main container */
+#main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: 100vh; /* Take full height of the screen */
+    padding: 10px;
+    background-color: transparent;
+    overflow: hidden; /* Prevent overflow */
+    margin-top: 60px; /* Add space for the fixed navigation */
+}
+
+/* Adjust the loading bar container */
+#loading-bar-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+}
+
+/* Adjust post-it note */
+#post-it-note {
+    width: 150px; /* Make post-it smaller */
+    font-size: 14px; /* Smaller text */
+    padding: 15px;
+}
+
+/* Loading dots */
+#loading-dots .dot {
+    width: 8px; /* Smaller dots */
+    height: 8px;
+}
+
+/* Lock the navigation menu at the top of the page */
+#nav-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    background-color: #ffeb3b; /* Yellow color */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); /* Shadow for separation */
+    z-index: 20;
+    display: none; /* Hide the nav bar on all screen sizes */
+    justify-content: center; /* Center the navigation links */
+    gap: 10px; /* Space between the links */
+    align-items: center;
+}
+
+/* Adjust navigation links */
+#nav-menu a {
+    font-size: 14px; /* Smaller font size */
+    padding: 8px 12px;
+    display: inline-block;
+    text-align: center;
+    box-sizing: border-box;
+    width: auto; /* Allow the links to adjust their width */
+}
+
+#nav-menu a:hover {
+    color: #fff;
+    background-color: #333;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* Adjust the PDF canvas container */
+#pdf-render {
+    margin-top: 20px; /* Adjust margin to ensure PDF is visible */
+    max-width: 100%;
+}
