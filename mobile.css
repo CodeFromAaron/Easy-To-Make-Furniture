@@ -4,7 +4,7 @@
     height: auto !important; /* Automatically adjust height to maintain aspect ratio */
     max-height: 90vh; /* Limit the height to 90% of the viewport height */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add subtle shadow for aesthetics */
-    margin-top: 10px; /* Space above the PDF to ensure it isn't hidden behind the menu */
+    margin-top: 60px; /* Space above the PDF to ensure it isn't hidden behind the menu */
 }
 
 /* Adjustments for the main container */
@@ -57,10 +57,11 @@
     background-color: #ffeb3b; /* Yellow color */
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); /* Shadow for separation */
     z-index: 20;
-    display: none; /* Hide the nav bar on all screen sizes */
+    display: flex; /* Show the nav bar on all screen sizes */
     justify-content: center; /* Center the navigation links */
     gap: 10px; /* Space between the links */
     align-items: center;
+    flex-wrap: wrap; /* Allow wrapping of links on small screens */
 }
 
 /* Adjust navigation links */
@@ -80,8 +81,29 @@
     border-radius: 5px;
 }
 
-/* Adjust the PDF canvas container */
-#pdf-render {
-    margin-top: 20px; /* Adjust margin to ensure PDF is visible */
-    max-width: 100%;
+/* Make the navigation menu more responsive on mobile */
+@media screen and (max-width: 768px) {
+    /* Adjust font size and padding for smaller screens */
+    #nav-menu a {
+        font-size: 12px; /* Smaller font size for mobile */
+        padding: 6px 10px;
+    }
+
+    /* Adjust margins to ensure the PDF doesn't get cut off */
+    #pdf-render {
+        margin-top: 80px; /* Increased margin for mobile */
+    }
+
+    /* Make the nav menu items stack vertically on small screens */
+    #nav-menu {
+        flex-direction: column; /* Stack navigation items vertically */
+        align-items: center; /* Center align the items */
+    }
+}
+
+/* Ensure the PDF render container fits inside the viewport on mobile */
+@media screen and (max-width: 600px) {
+    #pdf-render {
+        max-height: 70vh; /* Reduce PDF height for mobile screens */
+    }
 }
